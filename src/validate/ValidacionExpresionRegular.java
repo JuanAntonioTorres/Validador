@@ -1,10 +1,17 @@
 package validate;
 
-public class ValidacionExpresionRegular extends Validacion{
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-        public Boolean validar(String patron, String value){
+public class ValidacionExpresionRegular{
 
-            return value.matches(patron);
+        protected Boolean validar(String value,String patron){
+
+            Pattern pattern = Pattern.compile(patron);
+
+            Matcher matcher = pattern.matcher(value);
+
+            return matcher.matches();
 
         }
 
